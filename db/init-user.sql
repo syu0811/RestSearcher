@@ -1,0 +1,1 @@
+CREATE ROLE rest_searcher LOGIN CREATEDB PASSWORD 'password';

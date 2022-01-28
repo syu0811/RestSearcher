@@ -8,7 +8,7 @@ apt-get update && apt-get install -y yarn
 RUN apt-get update && apt-get install -y nodejs postgresql-client locales
 
 ENV RAILS_SERVE_STATIC_FILES 1
-# ENV rest_searcher_DATABASE_PASSWORD password
+ENV REST_SEARCHER_DATABASE_PASSWORD password
 
 RUN gem install bundler
 
