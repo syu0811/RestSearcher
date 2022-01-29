@@ -13,3 +13,7 @@ import "./search";
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+lat = 0.0;
+lng = 0.0;
+accLatlng = 0.0;

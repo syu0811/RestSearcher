@@ -7,6 +7,7 @@ window.checkGeolocatioon = function(){
 
     // 現在位置を取得する
     navigator.geolocation.getCurrentPosition( successFunc , errorFunc , optionObj );
+    alert(lat);
   }
   // Geolocation APIに対応していない
   else
@@ -23,10 +24,10 @@ function successFunc( position )
   var data = position.coords ;
 
   // データの整理
-  var lat = data.latitude ; // 緯度
-  var lng = data.longitude ; // 経度
+  lat = data.latitude ; // 緯度
+  lng = data.longitude ; // 経度
   // var alt = data.altitude ;
-  var accLatlng = data.accuracy ; // 精度
+  accLatlng = data.accuracy ; // 精度
   // var accAlt = data.altitudeAccuracy ;
   // var heading = data.heading ;			//0=北,90=東,180=南,270=西
   // var speed = data.speed ;
@@ -36,7 +37,7 @@ function successFunc( position )
 
   // HTMLへの書き出し
   document.getElementById( 'result' ).innerHTML = '<tbody><tr><td>' + lat + '</td><td>' + lng + '</td><td>' + accLatlng + '</td></tr></tbody>';
-  //document.getElementById( 'result' ).innerHTML = '<h1>aaa</h1>' ;
+  return lat;
 
   // // 位置情報
   // var latlng = new google.maps.LatLng( lat , lng ) ;
