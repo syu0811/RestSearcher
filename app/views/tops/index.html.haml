@@ -2,17 +2,7 @@
   %br
   = name['name']
 %br
--#= @datas['results']['shop']
 
--# %br
--# = @shops.elements['results/shop[]/name'].text
--# %br
--# - @shops.elements['results/shop[]'].each do |shop|
--#   %br
--#   = shop.text
--#   %br
--#   = data
+%input{onclick: "checkGeolocatioon()", type: "button", value: "button"}
 
--# - @shops.each_with_index do |name, i|
--#   = index = i.to_s
--#   = name.elements['results/shop/name[1]'].text
+%dl#result
