@@ -13,6 +13,8 @@ module RestSearcher
     config.time_zone = 'Tokyo'
     config.active_record.default_timezone = :local
 
+    config.paths.add 'lib', eager_load: true
+
     # アプリケーションが対応している言語のホワイトリスト(ja = 日本語, en = 英語)
     config.i18n.available_locales = [:ja, :en]
 
