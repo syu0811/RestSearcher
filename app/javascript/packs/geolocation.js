@@ -3,7 +3,7 @@ window.checkGeolocatioon = function(){
   if( navigator.geolocation )
   {
     // 現在位置を取得できる場合の処理
-    alert( "あなたの端末では、現在位置を取得することができます。" ) ;
+    // alert( "あなたの端末では、現在位置を取得することができます。" ) ;
 
     // 現在位置を取得する
     navigator.geolocation.getCurrentPosition( successFunc , errorFunc , optionObj );
@@ -23,19 +23,19 @@ function successFunc( position )
   var data = position.coords ;
 
   // データの整理
-  var lat = data.latitude ;
-  var lng = data.longitude ;
+  var lat = data.latitude ; // 緯度
+  var lng = data.longitude ; // 経度
   // var alt = data.altitude ;
-  var accLatlng = data.accuracy ;
+  var accLatlng = data.accuracy ; // 精度
   // var accAlt = data.altitudeAccuracy ;
   // var heading = data.heading ;			//0=北,90=東,180=南,270=西
   // var speed = data.speed ;
 
   // アラート表示
-	alert( "あなたの現在位置は、\n[" + lat + "," + lng + "]\nです。" ) ;
+	// alert( "あなたの現在位置は、\n[" + lat + "," + lng + "]\nです。" ) ;
 
   // HTMLへの書き出し
-  document.getElementById( 'result' ).innerHTML = '<dl><dt>緯度</dt><dd>' + lat + '</dd><dt>経度</dt><dd>' + lng + '</dd><dt>緯度、経度の精度</dt><dd>' + accLatlng;
+  document.getElementById( 'result' ).innerHTML = '<tbody><tr><td>' + lat + '</td><td>' + lng + '</td><td>' + accLatlng + '</td></tr></tbody>';
   //document.getElementById( 'result' ).innerHTML = '<h1>aaa</h1>' ;
 
   // // 位置情報

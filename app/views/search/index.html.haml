@@ -1,0 +1,20 @@
+%h1
+  検索画面
+
+%input{onclick: "checkGeolocatioon()", type: "button", value: "現在地を取得"}
+
+%table
+  %thead
+    %tr
+      %th.col-7
+        緯度
+      %th.col-7
+        経度
+      %th.col-7
+        精度
+  %tbody#result
+
+%br
+%label 半径（メートル）
+%input{name: "radius", type: "number", value: "10"}
+%input{onclick: "checkGeolocatioon()", type: "button", value: "検索"}
