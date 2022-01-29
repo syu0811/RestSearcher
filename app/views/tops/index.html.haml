@@ -1,0 +1,8 @@
+- @hash['results']['shop'].each do |name|
+  %br
+  = name['name']
+%br
+
+%input{onclick: "checkGeolocatioon()", type: "button", value: "button"}
+
+%dl#result
