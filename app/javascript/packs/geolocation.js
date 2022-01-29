@@ -25,17 +25,17 @@ function successFunc( position )
   // データの整理
   var lat = data.latitude ;
   var lng = data.longitude ;
-  var alt = data.altitude ;
+  // var alt = data.altitude ;
   var accLatlng = data.accuracy ;
-  var accAlt = data.altitudeAccuracy ;
-  var heading = data.heading ;			//0=北,90=東,180=南,270=西
-  var speed = data.speed ;
+  // var accAlt = data.altitudeAccuracy ;
+  // var heading = data.heading ;			//0=北,90=東,180=南,270=西
+  // var speed = data.speed ;
 
   // アラート表示
 	alert( "あなたの現在位置は、\n[" + lat + "," + lng + "]\nです。" ) ;
 
   // HTMLへの書き出し
-  document.getElementById( 'result' ).innerHTML = '<dl><dt>緯度</dt><dd>' + lat + '</dd><dt>経度</dt><dd>' + lng + '</dd><dt>高度</dt><dd>' + alt + '</dd><dt>緯度、経度の精度</dt><dd>' + accLatlng + '</dd><dt>高度の精度</dt><dd>' + accAlt + '</dd><dt>方角</dt><dd>' + heading + '</dd><dt>速度</dt><dd>' + speed + '</dd></dl>' ;
+  document.getElementById( 'result' ).innerHTML = '<dl><dt>緯度</dt><dd>' + lat + '</dd><dt>経度</dt><dd>' + lng + '</dd><dt>緯度、経度の精度</dt><dd>' + accLatlng;
   //document.getElementById( 'result' ).innerHTML = '<h1>aaa</h1>' ;
 
   // // 位置情報
