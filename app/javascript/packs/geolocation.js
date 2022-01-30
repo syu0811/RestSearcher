@@ -7,7 +7,6 @@ window.checkGeolocatioon = function(){
 
     // 現在位置を取得する
     navigator.geolocation.getCurrentPosition( successFunc , errorFunc , optionObj );
-    alert(lat);
   }
   // Geolocation APIに対応していない
   else

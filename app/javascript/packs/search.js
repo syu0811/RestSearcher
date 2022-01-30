@@ -2,12 +2,17 @@ window.addEventListener('DOMContentLoaded', ()=>{
   var button = document.getElementById("search");
   button.addEventListener("click", search);
   function search () {
-    let url = new URL(location);
-    radius = document.getElementById("radius").value;
-    url.searchParams.set('radius', radius);
-    url.searchParams.append('lat', lat);
-    url.searchParams.append('lng', lng);
-    location.href = url.toString();
-    alert(url.toString());
+    if(typeof lat == "undefined" || typeof lng == "undefined") {
+      document.getElementById( 'error' ).innerHTML = '<p>位置情報を取得してください</p>';
+    } else {
+      let url = new URL(location);
+      // let url = new URL("http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=e8cc8848cc539438");
+      range = document.getElementById("range").value;
+      url.searchParams.set('range', range);
+      url.searchParams.set('lat', lat);
+      url.searchParams.set('lng', lng);
+      location.href = url.toString();
+      alert(url.toString());
+    }
   }
 });
