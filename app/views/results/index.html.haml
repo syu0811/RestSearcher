@@ -1,6 +1,10 @@
 %h1 検索結果
 
+= link_to "検索に戻る", search_index_path
+
 %h2 店舗一覧
+
+= @hash['results']['shop'].length
 
 %table
   %thead
@@ -26,8 +30,7 @@
           %img{src: shop['logo_image']}
           //= "#{shop['logo_image']}"
 
-
-
--# - @hash['results']['shop'].each do |name|
--#   %br
--#   = name['name']
+- if (@page.to_i > 1)
+  %input{id: "prev", type: "button", value: "前へ", onclick: "prev(#{@page})"}
+- if (@next)
+  %input{id: "next", type: "button", value: "次へ", onclick: "next(#{@page})"}
