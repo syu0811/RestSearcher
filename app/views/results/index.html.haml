@@ -22,7 +22,8 @@
       - @hash['results']['shop'].each do |shop|
         %tr
           %td
-            = "#{shop['name']}"
+            =  link_to "#{shop['name']}", shop_path(shop['id'])
+            //= "#{shop['name']}"
           %td
             = "#{shop['access']}"
           %td
