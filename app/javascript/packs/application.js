@@ -9,6 +9,7 @@ import * as ActiveStorage from "@rails/activestorage";
 import "channels";
 import "./geolocation";
 import "./search";
+import "./page";
 
 Rails.start()
 Turbolinks.start()
