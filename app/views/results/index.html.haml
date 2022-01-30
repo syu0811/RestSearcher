@@ -1,1 +1,33 @@
 %h1 検索結果
+
+%h2 店舗一覧
+
+%table
+  %thead
+    %tr
+      %th.col-7
+        店舗名称
+      %th.col-7
+        アクセス
+      %th.col-7
+        サムネイル画像
+      -# %th.col-7
+      -#   管理者権限
+      -# %th.col-7
+      -# %th.col-7
+  %tbody
+    - @hash['results']['shop'].each do |shop|
+      %tr
+        %td
+          = "#{shop['name']}"
+        %td
+          = "#{shop['access']}"
+        %td
+          %img{src: shop['logo_image']}
+          //= "#{shop['logo_image']}"
+
+
+
+-# - @hash['results']['shop'].each do |name|
+-#   %br
+-#   = name['name']

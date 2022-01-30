@@ -6,6 +6,15 @@ module Api
       xml_to_hash(url)
     end
 
+    def get_restaurants_in_range(range, lat, lng)
+      url = "http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=e8cc8848cc539438"
+      range = "range=#{range}"
+      lat = "lat=#{lat}"
+      lng = "lng=#{lng}"
+      url = url + "&" + range + "&" + lat + "&" + lng
+      xml_to_hash(url)
+    end
+
     def xml_to_hash(url)
       require 'net/https'
       require "uri"
