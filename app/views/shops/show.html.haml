@@ -1,0 +1,24 @@
+%h1 店舗詳細
+
+= @shop['name']
+
+%table
+  %tr
+    %th.col-7
+      店舗名称
+    %td
+      = "#{@shop['name']}"
+  %tr
+    %td
+      %img{src: @shop['logo_image']}
+      //= "#{@shop['logo_image']}"
+  %tr
+    %th.col-7
+      住所
+    %td
+      = "#{@shop['address']}"
+  %tr
+    %th.col-7
+      営業時間
+    %td
+      = "#{@shop['open']}"

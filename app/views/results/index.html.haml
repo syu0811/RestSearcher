@@ -5,8 +5,8 @@
 %h2 店舗一覧
 
 - if (@hash['results'].key?('shop'))
-
-  = "#{@hash['results']['shop'].length}件表示"
+  = "#{@hash['results']['results_available']}件中"
+  = "#{(@page - 1) * 10 + 1} ~ #{@page * 10 - (10 - @hash['results']['shop'].length)}件目表示"
 
   %table
     %thead
@@ -22,7 +22,8 @@
       - @hash['results']['shop'].each do |shop|
         %tr
           %td
-            = "#{shop['name']}"
+            =  link_to "#{shop['name']}", shop_path(shop['id'])
+            //= "#{shop['name']}"
           %td
             = "#{shop['access']}"
           %td
