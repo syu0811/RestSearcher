@@ -1,8 +1,7 @@
-- @hash['results']['shop'].each do |name|
-  %br
-  = name['name']
-%br
+-# - @hash['results']['shop'].each do |name|
+-#   %br
+-#   = name['name']
+-# %br
 
-%input{onclick: "checkGeolocatioon()", type: "button", value: "button"}
-
-%dl#result
+%h1 トップ
+= link_to "検索", search_index_path
