@@ -4,33 +4,32 @@
 
 %h2 店舗一覧
 
-= @hash['results']['shop'].length
+- if (@hash['results'].key?('shop'))
 
-%table
-  %thead
-    %tr
-      %th.col-7
-        店舗名称
-      %th.col-7
-        アクセス
-      %th.col-7
-        サムネイル画像
-      -# %th.col-7
-      -#   管理者権限
-      -# %th.col-7
-      -# %th.col-7
-  %tbody
-    - @hash['results']['shop'].each do |shop|
+  = "#{@hash['results']['shop'].length}件表示"
+
+  %table
+    %thead
       %tr
-        %td
-          = "#{shop['name']}"
-        %td
-          = "#{shop['access']}"
-        %td
-          %img{src: shop['logo_image']}
-          //= "#{shop['logo_image']}"
+        %th.col-7
+          店舗名称
+        %th.col-7
+          アクセス
+        %th.col-7
+          サムネイル画像
 
-- if (@page.to_i > 1)
-  %input{id: "prev", type: "button", value: "前へ", onclick: "prev(#{@page})"}
-- if (@next)
-  %input{id: "next", type: "button", value: "次へ", onclick: "next(#{@page})"}
+    %tbody
+      - @hash['results']['shop'].each do |shop|
+        %tr
+          %td
+            = "#{shop['name']}"
+          %td
+            = "#{shop['access']}"
+          %td
+            %img{src: shop['logo_image']}
+            //= "#{shop['logo_image']}"
+
+  - if (@page.to_i > 1)
+    %input{id: "prev", type: "button", value: "前へ", onclick: "prev(#{@page})"}
+  - if (@next)
+    %input{id: "next", type: "button", value: "次へ", onclick: "next(#{@page})"}
