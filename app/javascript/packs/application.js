@@ -11,6 +11,8 @@ import "./geolocation";
 import "./search";
 import "./page";
 
+import '../src/application';
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()

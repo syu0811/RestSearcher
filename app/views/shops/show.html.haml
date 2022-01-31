@@ -1,24 +1,65 @@
 %h1 店舗詳細
 
-= @shop['name']
 
-%table
-  %tr
-    %th.col-7
-      店舗名称
-    %td
-      = "#{@shop['name']}"
-  %tr
-    %td
-      %img{src: @shop['logo_image']}
-      //= "#{@shop['logo_image']}"
-  %tr
-    %th.col-7
-      住所
-    %td
-      = "#{@shop['address']}"
-  %tr
-    %th.col-7
-      営業時間
-    %td
-      = "#{@shop['open']}"
+
+.main.container
+  .contents
+    .contents__container
+      .shops
+        .shops__logo-field
+          %img{src: @shop['logo_image'], width: "100", height: "100"}
+        %table
+          %tr
+            %th
+              店舗名称
+            %td
+              = "#{@shop['name']}"
+          %tr
+            %th
+              店名かな
+            %td
+              = "#{@shop['name_kana']}"
+          %tr
+            %td{colspan: "2"}
+              %img{src: @shop['photo']['pc']['l']}
+          %tr
+            %th
+              ジャンル
+            %td
+              = "#{@shop['genre']['name']}"
+          %tr
+            %th
+              住所
+            %td
+              = "#{@shop['address']}"
+          %tr
+            %th
+              営業時間
+            %td
+              = "#{@shop['open']}"
+          %tr
+            %th
+              定休日
+            %td
+              = "#{@shop['close']}"
+          %tr
+            %th
+              ディナー予算
+            %td
+              = "#{@shop['budget']['average']}"
+          %tr
+            %th
+              禁煙席
+            %td
+              = "#{@shop['non_smoking']}"
+          %tr
+            %th
+              WiFi
+            %td
+              = "#{@shop['wifi']}"
+          %tr
+            %th
+              URL
+            %td
+              = link_to "#{@shop['urls']['pc']}", @shop['urls']['pc']
+              //= "#{@shop['urls']['pc']}"
