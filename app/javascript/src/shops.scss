@@ -1,4 +1,18 @@
-.shop_detail{
+.shops{
+
+  &__logo-field{
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    user-select: none;
+
+    img{
+      padding: 5px;
+      border: 5px solid #ccc;
+    }
+  }
+
   table{
     width: 100%;
     border-collapse: collapse;
@@ -15,7 +29,7 @@
   table th{
     position: relative;
     text-align: left;
-    width: 30%;
+    width: 10%;
     background-color: #52c2d0;
     color: white;
     text-align: center;

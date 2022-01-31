@@ -1,9 +1,13 @@
 %h1 店舗詳細
 
+
+
 .main.container
   .contents
     .contents__container
-      .shop_detail
+      .shops
+        .shops__logo-field
+          %img{src: @shop['logo_image'], width: "100", height: "100"}
         %table
           %tr
             %th
@@ -18,7 +22,6 @@
           %tr
             %td{colspan: "2"}
               %img{src: @shop['photo']['pc']['l']}
-              //= "#{@shop['logo_image']}"
           %tr
             %th
               ジャンル
@@ -38,7 +41,7 @@
             %th
               定休日
             %td
-              = "#{@shop['close']}曜日"
+              = "#{@shop['close']}"
           %tr
             %th
               ディナー予算
