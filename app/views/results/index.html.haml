@@ -1,36 +1,50 @@
 %h1 検索結果
 
 = link_to "検索に戻る", search_index_path
+.main.container
+  .contents
+    .contents__container
+      - if (@shops['results'].key?('shop'))
+        %h2 店舗一覧
+        - if (@page.to_i > 1)
+          %input{id: "prev", type: "button", value: "前へ", onclick: "prev(#{@page})"}
+        = "#{@page}ページ"
+        - if (@next)
+          %input{id: "next", type: "button", value: "次へ", onclick: "next(#{@page})"}
+        %br
+        = "#{@shops['results']['results_available']}件中"
+        = "#{(@page - 1) * 10 + 1} ~ #{@page * 10 - (10 - @shops['results']['shop'].length)}件目表示"
+        .results
+          %table
+            %thead
+              %tr
+                %th
+                  店舗名称
+                %th
+                  ジャンル
+                %th
+                  アクセス
+                %th
+                  サムネイル画像
 
-%h2 店舗一覧
+            %tbody
+              - @shops['results']['shop'].each do |shop|
+                %tr
+                  %td
+                    =  link_to "#{shop['name']}", shop_path(shop['id'])
+                    //= "#{shop['name']}"
+                  %td
+                    = "#{shop['genre']['name']}"
+                  %td
+                    = "#{shop['access']}"
+                  %td
+                    %img{src: shop['photo']['pc']['m']}
+                    //= "#{shop['logo_image']}"
 
-- if (@hash['results'].key?('shop'))
-  = "#{@hash['results']['results_available']}件中"
-  = "#{(@page - 1) * 10 + 1} ~ #{@page * 10 - (10 - @hash['results']['shop'].length)}件目表示"
-
-  %table
-    %thead
-      %tr
-        %th.col-7
-          店舗名称
-        %th.col-7
-          アクセス
-        %th.col-7
-          サムネイル画像
-
-    %tbody
-      - @hash['results']['shop'].each do |shop|
-        %tr
-          %td
-            =  link_to "#{shop['name']}", shop_path(shop['id'])
-            //= "#{shop['name']}"
-          %td
-            = "#{shop['access']}"
-          %td
-            %img{src: shop['logo_image']}
-            //= "#{shop['logo_image']}"
-
-  - if (@page.to_i > 1)
-    %input{id: "prev", type: "button", value: "前へ", onclick: "prev(#{@page})"}
-  - if (@next)
-    %input{id: "next", type: "button", value: "次へ", onclick: "next(#{@page})"}
+          - if (@page.to_i > 1)
+            %input{id: "prev", type: "button", value: "前へ", onclick: "prev(#{@page})"}
+          = "#{@page}ページ"
+          - if (@next)
+            %input{id: "next", type: "button", value: "次へ", onclick: "next(#{@page})"}
+      - else
+        検索にヒットする店舗はありませんでした。  

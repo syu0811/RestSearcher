@@ -16,6 +16,7 @@
 
 //@import '~bootstrap/scss/bootstrap';
 @import "./shops.scss";
+@import "./results.scss";
 
 
 $page-bg: #f5ebdf;
@@ -42,7 +43,7 @@ body {
 };
 
 .contents {
-  padding: 0px 300px;
+  padding: 0px 200px;
 
   &__container {
     background-color: #fff;
