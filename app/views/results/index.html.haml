@@ -1,6 +1,7 @@
 %h1 検索結果
-
-= link_to "検索に戻る", search_index_path
+- if (@shops['results'].key?('shop'))
+  = "#{@shops['results']['results_available']}件あります"
+  
 .main.container
   .contents
     .contents__container
