@@ -1,22 +1,13 @@
 window.checkGeolocatioon = function(){
-  // Geolocation APIに対応している
   if( navigator.geolocation )
   {
-    // 現在位置を取得できる場合の処理
-    // alert( "あなたの端末では、現在位置を取得することができます。" ) ;
-
     // 現在位置を取得する
     navigator.geolocation.getCurrentPosition( successFunc , errorFunc , optionObj );
-  }
-  // Geolocation APIに対応していない
-  else
-  {
-    // 現在位置を取得できない場合の処理
+  } else {
     alert( "あなたの端末では、現在位置を取得できません。" ) ;
   }
 }
 
-// 成功した時の関数
 function successFunc( position )
 {
 	// 取得したデータの整理
@@ -35,8 +26,8 @@ function successFunc( position )
 	// alert( "あなたの現在位置は、\n[" + lat + "," + lng + "]\nです。" ) ;
 
   // HTMLへの書き出し
-  document.getElementById( 'result' ).innerHTML = '<tbody><tr><td>' + lat + '</td><td>' + lng + '</td><td>' + accLatlng + '</td></tr></tbody>';
-  return lat;
+  document.getElementById( 'result' ).innerHTML = '<br><p>現在地の位置情報を取得しました。</p>';
+  return;
 
   // // 位置情報
   // var latlng = new google.maps.LatLng( lat , lng ) ;
