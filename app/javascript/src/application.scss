@@ -14,9 +14,10 @@
  *= require_self
  */
 
-//@import '~bootstrap/scss/bootstrap';
+@import '~bootstrap/scss/bootstrap';
 @import "./shops.scss";
 @import "./results.scss";
+@import "./navbar.scss";
 
 
 $page-bg: #f5ebdf;
@@ -25,11 +26,6 @@ $bright-blue: #68B3FF;
 $light-gray: #999;
 //$curve: cubic-bezier(0, 0, 0.52, 1.11);
 $curve: linear;
-
-// /* セル幅を自動調整 */
-// table, th, td {
-//   width: auto !important;
-// };
 
 body {
   font-family: Roboto;
