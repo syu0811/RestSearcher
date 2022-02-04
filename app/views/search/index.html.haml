@@ -1,28 +1,39 @@
-%h1
-  検索画面
+:javascript
+  checkGeolocatioon()
+.main.container
+  .contents
+    .contents__container
+      %h1
+        検索
+      .search
+        -# %input{onclick: "checkGeolocatioon()", type: "button", value: "現在地を取得"}
 
-%input{onclick: "checkGeolocatioon()", type: "button", value: "現在地を取得"}
+        #result
 
-#error
+        %label 検索範囲（半径）
+        %select{id: "range", name: "range", required: true}
+          %option{value: "1"} 300m
+          %option{value: "2"} 500m
+          %option{value: "3"} 1000m
+          %option{value: "4"} 2000m
+          %option{value: "5"} 3000m
+        -# %input{id: "range", name: "range", type: "number", value: "10"}
 
-%table
-  %thead
-    %tr
-      %th.col-7
-        緯度
-      %th.col-7
-        経度
-      %th.col-7
-        精度
-  %tbody#result
+        %br
+        %label ジャンル
+        %select{id: "genre", name: "genre", required: true}
+          %option{value: "---"} ---
+          - @genres['results']['genre'].each do |genre|
+            %option{value: "#{genre['code']}"} 
+              = genre['name']
+        
+        %br
+        %input#smoking{name: "smoking", type: "checkbox"}
+        %label 禁煙席
 
-%br
-%label 検索範囲（半径）
-%select{id: "range", name: "range", required: true}
-  %option{value: "1"} 300m
-  %option{value: "2"} 500m
-  %option{value: "3"} 1000m
-  %option{value: "4"} 2000m
-  %option{value: "5"} 3000m
--# %input{id: "range", name: "range", type: "number", value: "10"}
-%input{id: "search", type: "button", value: "検索", onclick: "search()"}
+        %br
+        %input#parking{name: "parking", type: "checkbox"}
+        %label 	駐車場
+
+        %br
+        %input{id: "search", type: "button", value: "検索", onclick: "search()"}
