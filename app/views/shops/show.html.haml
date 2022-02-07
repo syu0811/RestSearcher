@@ -3,16 +3,16 @@
 .main.container
   .contents
     .contents__container
-      = form_with(model: @favorite, url: shops_path, local: true) do |f|
-        = f.hidden_field :shop_id, value: @shop['id']
-        = f.hidden_field :name, value: @shop['name']
-        = f.hidden_field :genre, value: @shop['genre']['name']
-        = f.hidden_field :open, value: @shop['open']
-        = f.hidden_field :photo, value: @shop['photo']['pc']['m']
-        - if @find == nil
+      - if @find == nil
+        = form_with(model: @favorite, url: shops_path, local: true) do |f|
+          = f.hidden_field :shop_id, value: @shop['id']
+          = f.hidden_field :name, value: @shop['name']
+          = f.hidden_field :genre, value: @shop['genre']['name']
+          = f.hidden_field :open, value: @shop['open']
+          = f.hidden_field :photo, value: @shop['photo']['pc']['m']
           = f.submit "☆", class: 'btn btn-success'
-        - else
-          = f.submit "★", class: 'btn btn-success'
+      - else
+        = link_to '★', shop_path(@shop['id']), method: :delete, data: {confirm: '削除しますか？'}, class: 'btn btn-danger'
       .shops
         .shops__logo-field
           %img{src: @shop['logo_image'], width: "100", height: "100"}
