@@ -3,6 +3,16 @@
 .main.container
   .contents
     .contents__container
+      = form_with(model: @favorite, url: shops_path, local: true) do |f|
+        = f.hidden_field :shop_id, value: @shop['id']
+        = f.hidden_field :name, value: @shop['name']
+        = f.hidden_field :genre, value: @shop['genre']['name']
+        = f.hidden_field :open, value: @shop['open']
+        = f.hidden_field :photo, value: @shop['photo']['pc']['m']
+        - if @find == nil
+          = f.submit "☆", class: 'btn btn-success'
+        - else
+          = f.submit "★", class: 'btn btn-success'
       .shops
         .shops__logo-field
           %img{src: @shop['logo_image'], width: "100", height: "100"}

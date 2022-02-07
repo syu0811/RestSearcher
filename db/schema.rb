@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 2022_02_07_012727) do
 
   create_table "favorites", force: :cascade do |t|
     t.string "shop_id", null: false
+    t.string "name", null: false
     t.string "genre", null: false
     t.string "open", null: false
     t.string "photo", null: false
