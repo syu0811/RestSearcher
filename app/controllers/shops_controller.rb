@@ -1,4 +1,10 @@
 class ShopsController < ApplicationController
+  def index
+    @page = get_page < 1 ? 1 : get_page
+    @count = Favorite.count
+    @shops = Favorite.limit(10).offset((@page - 1) * 10)
+  end
+
   def show
     gs = Api::GourmetSearch.new
     @hash = gs.get_restaurants_with_id(params[:id])
@@ -27,5 +33,9 @@ class ShopsController < ApplicationController
 
   def get_params
     params.require(:favorite).permit(:shop_id, :name, :genre, :open, :photo)
+  end
+
+  def get_page
+    params[:page].try(:[], params[:page]).nil? ? 1 : params[:page].to_i
   end
 end
