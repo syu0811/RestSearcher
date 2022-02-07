@@ -64,5 +64,26 @@ PS> docker-compose exec web bash
 PS> rails db:create
 ```
 
+## 本番環境(不備あり)
+
+- 以下のコマンドを実行し、仮想コンテナを立てる。
+
+```console
+PS> del docker-compose.yml
+PS> ren docker-compose.prc.yml docker-compose.yml
+PS> docker-compose build
+PS> docker-compose up
+```
+
+- DB作成・初期データ投入・コンパイル
+
+```console
+# コンテナを起動した状態
+PS> docker-compose exec web bash
+# 接続を確認後
+$> rails assets:precompile
+$> RAILS_ENV=production rails db:create
+```
+
 ## 開発者
 - syu0811
