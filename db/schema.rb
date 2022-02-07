@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2022_02_07_012727) do
     t.string "photo", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["shop_id"], name: "index_favorites_on_shop_id", unique: true
   end
 
 end

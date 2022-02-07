@@ -8,5 +8,7 @@ class CreateFavorites < ActiveRecord::Migration[6.1]
       t.string :photo, null: false
       t.timestamps
     end
+
+    add_index :favorites, :shop_id, unique: true
   end
 end
