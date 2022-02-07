@@ -1,4 +1,5 @@
 %nav.navbar.navbar-expand.navbar-dark
   = link_to root_path do
     .rogo-img
-  = link_to "お気に入り", shops_path
+  .favorite
+    = link_to "お気に入り", shops_path, class: "btn_03"

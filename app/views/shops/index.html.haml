@@ -14,7 +14,7 @@
           %input{id: "next", type: "button", value: "次へ", onclick: "next(#{@page})"}
         %br
         = "#{@count}件中"
-        - if(@shops.size > 10)
+        - if(@shops.size == 1)
           = "#{(@page - 1) * 10 + 1}件目表示"
         - else
           = "#{(@page - 1) * 10 + 1} ~ #{@page * 10 - (10 - @shops.size)}件目表示"
