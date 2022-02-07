@@ -61,7 +61,7 @@ PS> docker-compose up
 # コンテナを起動した状態
 PS> docker-compose exec web bash
 # 接続を確認後
-PS> rails db:create
+PS> rails db:create db:migrate
 ```
 
 ## 本番環境(不備あり)
@@ -82,7 +82,7 @@ PS> docker-compose up
 PS> docker-compose exec web bash
 # 接続を確認後
 $> rails assets:precompile
-$> RAILS_ENV=production rails db:create
+$> RAILS_ENV=production rails db:create db:migrate
 ```
 
 ## 開発者
