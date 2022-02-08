@@ -1,0 +1,63 @@
+%h1 お気に入り
+- if (@shops.size > 0)
+  = "#{@count}件あります"
+
+.main.container
+  .contents
+    .contents__container
+      - if (@shops.size > 0)
+        %h2 店舗一覧
+        - if (@page.to_i > 1)
+          %input{id: "prev", type: "button", value: "前へ", onclick: "prev(#{@page})"}
+        = "#{@page}ページ"
+        - if (@count - @page * 10 > 0)
+          %input{id: "next", type: "button", value: "次へ", onclick: "next(#{@page})"}
+        %br
+        = "#{@count}件中"
+        - if(@shops.size == 1)
+          = "#{(@page - 1) * 10 + 1}件目表示"
+        - else
+          = "#{(@page - 1) * 10 + 1} ~ #{@page * 10 - (10 - @shops.size)}件目表示"
+        .results
+          %table
+            %thead
+              %tr
+                %th
+                  店舗名称
+                %th
+                  ジャンル
+                %th
+                  営業日
+                %th
+                  サムネイル画像
+
+            %tbody
+              - if(@shops.size > 10)
+                %tr
+                  %td
+                    =  link_to "#{@shops.name}", shop_path(@shops.shop_id)
+                  %td
+                    = "#{@shops.genre}"
+                  %td
+                    = "#{@shops.open}"
+                  %td
+                    %img{src: @shops.photo}
+              - else
+                - @shops.each do |shop|
+                  %tr
+                    %td
+                      =  link_to "#{shop.name}", shop_path(shop.shop_id)
+                    %td
+                      = "#{shop.genre}"
+                    %td
+                      = "#{shop.open}"
+                    %td
+                      %img{src: shop.photo}
+
+          - if (@page.to_i > 1)
+            %input{id: "prev", type: "button", value: "前へ", onclick: "prev(#{@page})"}
+          = "#{@page}ページ"
+          - if (@count - @page * 10 > 0)
+            %input{id: "next", type: "button", value: "次へ", onclick: "next(#{@page})"}
+      - else
+        お気に入りに登録した店舗はありません。  
